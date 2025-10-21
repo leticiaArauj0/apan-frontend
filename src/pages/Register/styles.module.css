@@ -1,3 +1,24 @@
-.title {
+.card {
+    height: 36rem;
+    width: 28rem;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    background-color: var(--background-color);
+
+    padding: 3rem;
+    border-radius: 30px;
+}
+
+.img {
+    height: 7.5rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
 }
