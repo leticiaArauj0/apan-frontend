@@ -1,8 +1,8 @@
-import Button from '../../components/Button/index'
-import Input from '../../components/Input/index'
-import CardStyles from '../../shared/styles/Card.module.css'
 import styles from './styles.module.css'
+import CardStyles from '../../shared/styles/Card.module.css'
 import logoImage from '../../assets/logo.png'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
 
 export function ForgetPassword() {
     return(
