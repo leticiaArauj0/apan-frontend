@@ -1,0 +1,22 @@
+.container {
+    width: 90vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.dashboard {
+    height: 70vh;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;  
+    gap: 2.5rem;  
+
+    align-content: start;
+
+    background-color: var(--background-color);
+    border-radius: 20px;
+    padding: 4rem 5rem;
+}
