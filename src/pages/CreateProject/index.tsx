@@ -2,6 +2,7 @@ import ContainerStyles from '../../shared/styles/Container.module.css'
 import styles from './styles.module.css'
 import { Header } from '../../components/Header'
 import Input from '../../components/Input'
+import Button from '../../components/Button'
 
 export function CreateProject() {
     return(
@@ -23,6 +24,11 @@ export function CreateProject() {
                 <div>
                     <label>Imagem</label>
                     <Input type='file' placeholder=''/>
+                </div>
+
+                <div className={styles.containerButton}>
+                    <Button text='Cancelar' color='secondary'/>
+                    <Button text='Salvar'/>
                 </div>
             </div>
         </div>
