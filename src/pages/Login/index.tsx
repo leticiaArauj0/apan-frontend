@@ -10,7 +10,7 @@ export function Login() {
             <img className={CardStyles.img} src={logoImage}/>
             <p className={CardStyles.title}>Log in</p>
             <div className={styles.containerInputs}>
-                <Input placeholder='Email'/>
+                <Input type='email' placeholder='Email'/>
                 <Input type='password' placeholder='Senha'/>
                 <span className={styles.forgetPassword}>Esqueceu a senha?</span>
             </div>

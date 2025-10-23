@@ -10,7 +10,7 @@ export function Register() {
             <p className={CardStyles.title}>Cadastro</p>
             <div>
                 <Input placeholder='Nome'/>
-                <Input placeholder='Email'/>
+                <Input type='emaiil' placeholder='Email'/>
                 <Input type='password' placeholder='Senha'/>
                 <Input type='password' placeholder='Confirmar senha'/>            
             </div>
