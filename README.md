@@ -1,16 +1,56 @@
-# React + Vite
+# 🚀 App Gestor de Projetos (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o frontend (client-side) do projeto "Apan", construído com React, TypeScript e CSS Modules. Ele consome a [API do Backend](https://github.com/leticiaArauj0/apan-backend) para autenticação e gerenciamento de dados.
 
-Currently, two official plugins are available:
+**Status do Projeto:** Em Desenvolvimento 🚧
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🛠️ Tecnologias Principais
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **React.js** (v18)
+* **TypeScript**
+* **React Router (v6)** (para roteamento)
+* **Axios** (para requisições HTTP)
+* **React Context API** (para gerenciamento de estado de autenticação)
+* **CSS Modules** (para componentização de estilos)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Funcionalidades
+
+* **Fluxo de Autenticação Completo:**
+    * Páginas de Login e Registro com validação.
+    * Gerenciamento de estado global (Context) para `user` e `token`.
+    * Armazenamento do token em `localStorage`.
+    * Interceptor `axios` que anexa automaticamente o token JWT em todas as requisições.
+* **Rotas Protegidas:**
+    * Uso de componentes `ProtectedRoute` e `PublicOnlyRoute` para garantir que o usuário só acesse as páginas corretas (logado ou deslogado).
+* **Componentização:**
+    * Componentes reutilizáveis como `Input` e `Button`.
+
+---
+
+## 🏁 Como Rodar o App (Localmente)
+
+### 1. Pré-requisito (IMPORTANTE)
+
+Este frontend **NÃO** funcionará sozinho. Ele precisa que a [API do Backend](https://github.com/leticiaArauj0/apan-backend) esteja rodando localmente na porta `5000`.
+
+**➡️ Siga as instruções do repositório do backend primeiro.**
+
+### 2. Configuração do Projeto
+
+1.  **Clone este repositório** (se ainda não o fez).
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+3.  **Inicie o servidor de desenvolvimento do React:**
+    ```bash
+    npm run dev
+    # (Ou 'npm start', dependendo do seu package.json)
+    ```
+✅ O aplicativo React estará rodando em `http://localhost:3000` (ou `5173`, ou a porta que seu terminal indicar).
+
+Basta abrir essa URL no seu navegador para usar o app.
