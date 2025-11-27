@@ -15,7 +15,7 @@ export function App() {
       <Route path='forget-password' element={<ForgetPassword/>}></Route>
       <Route path='home' element={<Home/>}></Route>
       <Route path='forget-password' element={<ForgetPassword/>}></Route>
-      <Route path='reset-password' element={<ResetPassword/>}></Route>
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path='create-project' element={<CreateProject/>}/>
     </Routes>
   )
