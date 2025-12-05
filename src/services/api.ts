@@ -1,7 +1,7 @@
 import axios, { InternalAxiosRequestConfig } from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:5000/api'
+  baseURL: 'https://apan-backend.onrender.com/api'
 });
 
 api.interceptors.request.use(
