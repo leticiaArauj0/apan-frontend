@@ -30,6 +30,7 @@ interface IAuthContext {
   logout: () => void;
   forgotPassword: (email: string) => Promise<void>;
   resetPasswordConfirm: (token: string, password: string) => Promise<void>;
+  updateUserProfile: (data: { name: string, email: string }) => Promise<void>;
 }
 
 interface AuthProviderProps {
@@ -111,6 +112,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     navigate('/login');
   };
 
+  const updateUserProfile = async ({ name, email }: { name: string, email: string }) => {
+    try {
+        const response = await api.put(`/users/${user?.id}`, { name, email });
+        
+        const updatedUser = {
+            ...user,
+            name: response.data.name,
+            email: response.data.email
+        };
+
+        setUser(updatedUser as IUser);
+        localStorage.setItem('@App:user', JSON.stringify(updatedUser));
+
+    } catch (error) {
+        throw error;
+    }
+};
+
   const value: IAuthContext = {
     user,
     token,
@@ -120,7 +139,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     register,
     logout,
     forgotPassword,
-    resetPasswordConfirm
+    resetPasswordConfirm,
+    updateUserProfile
   };
 
   return (

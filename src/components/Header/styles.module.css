@@ -16,37 +16,69 @@
     cursor: pointer;
 }
 
-.containerInput {
-    width: 60%;
+.title {
+    text-transform: uppercase;
+    letter-spacing: 3%;
+    word-spacing: 0.5rem;
+}
 
+.profileContainer {
+    position: relative;
     display: flex;
     align-items: center;
-
-    position: relative;
+    gap: 10px;
+    cursor: pointer;
 }
 
-.input {
-    width: 100%;
-    height: 3rem;
-
-    background-color: var(--background-color);
-
-    font-size: 1.5rem;
-    color: var(--primary-color);
-
-    padding-left: 2rem;
-
-    border: 1.5px solid var(--primary-color);
-    border-radius: 10px;
+.userInfo {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
 }
 
-.input:focus {
-    outline: 1px solid var(--primary-color);
+.userName {
+    font-weight: bold;
+    color: #003333;
+    font-size: 0.95rem;
 }
 
-.icon {
+.userRole {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.dropdownMenu {
     position: absolute;
-    right: 20px;
+    top: 120%;
+    right: 0;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease;
+}
+
+.menuItem {
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: 0.9rem;
+    transition: ease-in 0.2s;
+}
+
+.menuItem:hover {
+    background-color: #f5f5f5;
 }
 
 .button {
@@ -73,3 +105,5 @@
     opacity: 0.7;
     transition: 0.1s ease-out;
 }
+
+

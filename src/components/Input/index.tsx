@@ -2,14 +2,15 @@ import { ChangeEventHandler } from "react";
 import styles from "./styles.module.css";
 
 interface InputProps {
-    placeholder: string
+    placeholder?: string
     type?: string
     value?: string | number | readonly string[] | undefined
     onChange?: ChangeEventHandler<HTMLInputElement>
+    name?: string
 }
 
-export default function Input({placeholder, type='text', value, onChange}: InputProps) {
+export default function Input({placeholder, type='text', value, onChange, name}: InputProps) {
   return (
-    <input className={styles.input} type={type} placeholder={placeholder} value={value} onChange={onChange}/>
+    <input className={styles.input} type={type} placeholder={placeholder} value={value} onChange={onChange} name={name}/>
   );
 }

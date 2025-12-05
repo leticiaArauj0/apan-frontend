@@ -95,6 +95,13 @@ export function Login() {
             </div>
 
             <Button text='login' color='primary' size='medium' type='submit' />
+
+            <div style={{fontSize: '1rem', textAlign: 'center' }}>
+                <span>Não possui conta? </span>
+                <Link to="/" style={{ color: '#003333', textDecoration: 'none', fontWeight: 'bold' }}>
+                    Clique aqui para cadastrar
+                </Link>
+            </div>
         </form>
     )
 }

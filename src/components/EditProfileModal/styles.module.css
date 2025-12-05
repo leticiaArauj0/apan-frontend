@@ -1,0 +1,50 @@
+.overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Maior que o header */
+    backdrop-filter: blur(2px);
+}
+
+.modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.header h3 { color: #003333; margin: 0; }
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label { font-size: 0.9rem; font-weight: 600; color: #333; }
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
