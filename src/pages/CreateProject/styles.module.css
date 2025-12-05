@@ -1,66 +1,67 @@
-.containerCreate {
-    height: 70vh;
+/* styles.module.css */
+.containerCreate {  
+    height: 75vh;
     width: 100%;
 
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+
+    align-content: start;
 
     background-color: var(--background-color);
     border-radius: 20px;
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
 }
 
-label {
-    font-size: 1.3rem;
-    letter-spacing: 3%;
-    opacity: 0.8;
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
 }
 
-textarea {
-    height: 5rem;
-    width: 100%;
-
-    font-family: 'Poppins';
+.formGroup label {
+    font-weight: 600;
+    color: #333;
     font-size: 1rem;
-
-    background-color: var(--background-color);
-    border: 1.5px solid var(--primary-color);
-    border-radius: 10px;
-
-    padding: 0.8rem 1rem;
-    resize: none;
-
-    margin-top: 0.8rem;
 }
 
-textarea:focus {
-    outline: 1px solid var(--primary-color);
+/* Estilo para o textarea ficar igual ao seu Input component */
+.textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px; /* Ajuste conforme seu Input */
+    background-color: var(--background-color); /* Ajuste conforme seu Input */
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+    font-size: 1rem;
 }
 
-input[type="file"] {
-    padding: 0.5rem;
+.textarea:focus {
+    outline: 1px solid var(--primary-color);    
 }
 
-input[type="file"]::file-selector-button {
-    width: 20%;
-    height: 100%;
-    border: none;
-
-    background-color: var(--primary-color);
-    color: var(--white);
-
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    right: -8px;
-
-    cursor: pointer;
+/* Grid para colocar datas lado a lado */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem;
 }
 
 .containerButton {
-    width: 25%;
+    width: 30%;
     display: flex;
-    gap: 1rem;
     align-self: flex-end;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 600px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
 }

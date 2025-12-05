@@ -12,6 +12,7 @@ interface IUser {
   id: number;
   name: string;
   email: string;
+  role: string
 }
 
 interface ILoginResponse {
@@ -25,8 +26,11 @@ interface IAuthContext {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (name: string, email: string, password: string) => Promise<void>;
+  register: (name: string, email: string, password: string, role: string) => Promise<void>;
   logout: () => void;
+  forgotPassword: (email: string) => Promise<void>;
+  resetPasswordConfirm: (token: string, password: string) => Promise<void>;
+  updateUserProfile: (data: { name: string, email: string }) => Promise<void>;
 }
 
 interface AuthProviderProps {
@@ -69,14 +73,29 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       navigate('/home');
 
     } catch (error) {
-      console.error('Falha no login:', error);
-      alert('Email ou senha inválidos.');
+      throw error;
     }
   };
 
-  const register = async (name: string, email: string, password: string): Promise<void> => {
+  const forgotPassword = async (email: string) => {
     try {
-      await api.post('/users', { name, email, password });
+        await api.post('/users/forgot-password', { email });
+    } catch (error) {
+        throw error;
+    }
+  };
+
+  const resetPasswordConfirm = async (token: string, password: string) => {
+    try {
+        await api.post(`users/reset-password/${token}`, { password });
+    } catch (error) {
+        throw error;
+      }
+  };
+
+  const register = async (name: string, email: string, password: string, role: string): Promise<void> => {
+    try {
+      await api.post('/users', { name, email, password, role });
       await login(email, password);
     } catch (error) {
       console.error('Falha no registro:', error);
@@ -93,6 +112,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     navigate('/login');
   };
 
+  const updateUserProfile = async ({ name, email }: { name: string, email: string }) => {
+    try {
+        const response = await api.put(`/users/${user?.id}`, { name, email });
+        
+        const updatedUser = {
+            ...user,
+            name: response.data.name,
+            email: response.data.email
+        };
+
+        setUser(updatedUser as IUser);
+        localStorage.setItem('@App:user', JSON.stringify(updatedUser));
+
+    } catch (error) {
+        throw error;
+    }
+};
+
   const value: IAuthContext = {
     user,
     token,
@@ -100,7 +137,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     isLoading,
     login,
     register,
-    logout
+    logout,
+    forgotPassword,
+    resetPasswordConfirm,
+    updateUserProfile
   };
 
   return (
