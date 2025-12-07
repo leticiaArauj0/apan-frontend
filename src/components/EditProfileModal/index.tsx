@@ -30,7 +30,6 @@ export function EditProfileModal({ isOpen, onClose }: EditProfileModalProps) {
         try {
             setLoading(true);
             await updateUserProfile({ name, email });
-            alert('Perfil atualizado com sucesso!');
             onClose();
         } catch (error) {
             console.error(error);

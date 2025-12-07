@@ -91,12 +91,11 @@ export function Home() {
             <Header/> 
             
             <div className={styles.dashboard}>
-                {loading && <p style={{ padding: '2rem' }}>Carregando projetos...</p>}
+                {loading && <p style={{ padding: '0 2rem', width: '100%', position: 'absolute', height: '90%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', color: '#666', marginTop: '2rem', fontSize: '1.5rem'}}>Carregando projetos...</p>}
 
                 {!loading && projects.length === 0 && (
-                    <div style={{ gridColumn: '1/-1', textAlign: 'center', color: '#666', marginTop: '2rem', fontSize: '1.5rem', position: 'absolute', top: '35%', left: '38%'}}>
-                        <p>Você ainda não tem projetos.</p>
-                        <p>Clique no "+" para começar.</p>
+                    <div style={{ padding: '0 2rem', width: '100%', position: 'absolute', height: '90%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', color: '#666', marginTop: '2rem', fontSize: '1.5rem'}}>
+                        Você ainda não tem projetos. Clique no "+" para começar.
                     </div>
                 )}
 
@@ -118,7 +117,6 @@ export function Home() {
                                 {project.my_role}
                             </span>
                             
-                            {/* Grupo de botões (Copiar e Deletar) */}
                             <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                                 <button 
                                     title="Copiar código de acesso"
@@ -129,7 +127,6 @@ export function Home() {
                                     <CopyIcon size={16} />
                                 </button>
 
-                                {/* 3. Botão de Deletar (Só aparece para Gerente) */}
                                 {project.my_role === 'Gerente' && (
                                     <button
                                         title="Excluir Projeto"

@@ -106,4 +106,8 @@
     transition: 0.1s ease-out;
 }
 
-
+@media screen and (max-width: 810px) {
+    .title {
+        display: none;  
+    }
+}

@@ -59,7 +59,7 @@ export function CreateProject() {
                     <label>Nome do Projeto *</label>
                     <Input 
                         name="name"
-                        placeholder='Ex: Paraolimpíadas 2024' 
+                        placeholder='Ex: Paraolimpíadas 2025' 
                         value={formData.name}
                         onChange={handleChange}
                     />
