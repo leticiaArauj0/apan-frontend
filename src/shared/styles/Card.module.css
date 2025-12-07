@@ -58,3 +58,27 @@
     padding-left: 1rem;
     margin-top: 0.8rem;
 }
+
+@media screen and (max-width: 500px) {
+    .card {
+        height: 80vh;
+        width: 100%;
+        align-self: center;
+        padding: 1.5rem;
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .card {
+        height: 92vh;
+        width: 100%;
+        align-self: center;
+        padding: 1.5rem;
+        gap: 0.25rem;
+    }
+
+    .img {
+        height: 6rem;
+    }
+}

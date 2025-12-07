@@ -222,8 +222,17 @@ export function ProjectDashboard() {
     };
 
 
-    if (loading || !project) return <div className={ContainerStyles.container}><Header /><p style={{padding: '2rem'}}>Carregando...</p></div>;
-
+    if (loading || !project) {
+        return (
+            <div className={ContainerStyles.container}>
+                <Header />
+                <div className={styles.container}>
+                   <p>Carregando projetos...</p>
+                </div>
+            </div>
+        )
+    }
+    
     const formatDate = (date: string) => new Date(date).toLocaleDateString('pt-BR');
     const formatCurrency = (val: string) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(val));
 
@@ -244,7 +253,7 @@ export function ProjectDashboard() {
                             Código: {project.join_code} <CopyIcon size={14} />
                         </div>
 
-                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', width: '30%' }}>
+                        <div className={styles.buttonContainer}>
                             <Button text="Adicionar Meta" size="medium" onClick={() => setIsGoalModalOpen(true)} />
                             <Button text="Registrar Ação" size="medium" color="secondary" onClick={() => setIsActionModalOpen(true)} />
                         </div>
@@ -598,7 +607,7 @@ export function ProjectDashboard() {
                                 <label>Público Alvo</label>
                                 <Input value={editFormData.target_audience} onChange={e => setEditFormData({...editFormData, target_audience: e.target.value})} />
                             </div>
-                            <div className={styles.formGroup} style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
+                            <div className={`${styles.formGroup}, ${styles.containerDate}`}>
                                 <div style={{flex: 1}}>
                                     <label>Início</label>
                                     <Input type="date" value={editFormData.start_date} onChange={e => setEditFormData({...editFormData, start_date: e.target.value})} />
